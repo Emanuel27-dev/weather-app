@@ -20,7 +20,7 @@ export const ContainerCardsWeather = () => {
                                 key={index}
                                 date={dt_txt}
                                 rootImagen={getPathIcon(weather[0].main)}
-                                tempMax={main.feels_like && Math.round(main.feels_like)}
+                                tempMax={main.temp_max && Math.round(main.temp_max)}
                                 tempMin={main.temp_min && Math.floor(main.temp_min)}
                             />
                         );
