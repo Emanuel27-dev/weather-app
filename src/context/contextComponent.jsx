@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createContext } from "react";
+import axios from "axios";
 
 export const WeatherContext = createContext(null);
 
@@ -8,6 +9,7 @@ export const ContextComponentProvider = ({children}) => {
     // currentData: guardara la info del clima actual
     const [currentData, setCurrentData] = useState({});
     const [arrayCurrentForecast, setArrayCurrentForecast] = useState([]);
+    const [city, setCity] = useState();
 
 
     const fetchCurrentData = async (city) => {
@@ -44,6 +46,29 @@ export const ContextComponentProvider = ({children}) => {
 
     }
 
+
+    // Esta funcion nos ayuda a obtener la ciudad con la ayuda de axis a traves de la direccion IP
+    const findCity = async() => {
+        try{
+            // Hacemos una solicitud a ipinfo.io para obtener la información de la IP del usuario
+            const response = await axios.get('https://ipinfo.io/json'); 
+    
+            // La respuesta contendrá información sobre la ubicación del usuario
+            const data = response.data;
+            const city = data.city;
+    
+            setCity(city); // encontramos la ciudad
+
+            // hacemos la peticion
+            fetchCurrentData(city); 
+            fetchForecastCurrentDay(city);
+        }   
+        catch(error){
+            console.log('Error al obtener la ciudad: ', error);
+        }
+    }
+
+
     const handleSubmitSearch = (event,city) => {
         event.preventDefault();
         fetchCurrentData(city);
@@ -51,8 +76,7 @@ export const ContextComponentProvider = ({children}) => {
     }
 
     useEffect(() => {
-        fetchCurrentData('Lima');
-        fetchForecastCurrentDay('Lima');
+        findCity(); // primero obtenemos la ciudad y luego hacemos el fetch
     },[]);
     
 

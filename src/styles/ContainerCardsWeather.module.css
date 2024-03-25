@@ -5,3 +5,9 @@
     gap: 24px;
     margin-bottom: 3em;
 }
+
+.titlePronostico {
+    color: var(--colors-main-numbers-texts);
+    font-size: 24px;
+    margin-bottom: 1.1em;
+}
