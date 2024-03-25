@@ -1,0 +1,21 @@
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1em;
+    color: var(--colors-main-numbers-texts);
+}
+
+.containerCards {
+    gap: 40px;
+    /* border: 1px solid white; */
+    display: grid;
+    grid-template-columns: repeat(2,minmax(328px, 1fr));
+    grid-template-rows: 204px;
+    grid-auto-rows: 159px;
+}
+
+@media (width <= 910px) {
+    .containerCards {
+        grid-template-columns: 328px;
+    }
+}

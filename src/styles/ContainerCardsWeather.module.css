@@ -1,0 +1,7 @@
+.containerCards {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(120px,120px));
+    gap: 24px;
+    margin-bottom: 3em;
+}

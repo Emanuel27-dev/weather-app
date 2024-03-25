@@ -1,0 +1,22 @@
+.card {
+    border-radius: .6em;
+    background-color: var(--color-secondary-background);
+    color: var(--colors-main-numbers-texts);
+    font-weight: 500;
+    padding: 1.2em 2.2em;
+}
+.cardTitle {
+    text-align: center;
+}
+
+.card > div {
+    text-align: center;
+}
+
+.cardNumber {
+    font-size: 64px;
+    font-weight: 600;
+}
+.cardUnit {
+    font-size: 36px;
+}

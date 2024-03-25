@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* font of numbers, titles */
+    --font-main: "Raleway", sans-serif;
+
+    /* font of copyright  */
+    --font-copyright: "Montserrat", sans-serif;
+
+    /* Colors of backgrounds */
+    --color-main-background: #100E1D;
+    --color-secondary-background: #1E213A;
+    
+    /* Colors of texts and numbers */
+    --colors-main-numbers-texts: #E7E7EB;
+    --color-name-weather-copyright: #A09FB1;
+    --color-location: #88869D;
+    --color-button: #3C47E9;
+    --color-bar-yellow: #FFEC65;
+
+}
+html {
+    font-family: var(--font-main);
+    background-color: rgba(240, 235, 235, 0.938);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 80%;
+    max-width: 1440px;
+    min-width: 370px;
+    background-color: var(--color-main-background);
+    margin: 0 auto;
+    border-radius: 0.8em;
+
+    display: flex;
+}
+
+/* sacar porcentajes para hacerlo un poco responsive */
+.left-side {
+    background-color: var(--color-secondary-background);
+    flex-basis: 459px;
+    height: 840px;
+    border-radius: 0.8em;
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
+    padding: 2em;
+    overflow: hidden;
+    position: relative;
+}
+
+.right-side {
+    flex-basis: 981px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container-right {
+    width: max-content;
+    /* border: 1px solid white; */
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 13px;
+    color: var(--color-name-weather-copyright);
+}
+
+.footer__name {
+    font-weight: bold;
+}
+
+.footer__link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Media query para el lado derecho e izquierdo */
+@media (width <= 1400px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: initial;
+    }
+
+    .left-side {
+        flex-basis: auto;
+        border-radius: 0.8em;
+        border-radius: initial;
+        padding: 2em;
+    }
+
+    .right-side {
+        flex-basis: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4em 0;
+        position: relative;
+    }
+}
+
+@media (width <= 910px) {
+    .left-side {
+        height: 640px;
+    }
+}
