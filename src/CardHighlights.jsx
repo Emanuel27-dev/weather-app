@@ -1,6 +1,6 @@
 import style from "./styles/CardHighlights.module.css";
 
-export const CardHighlights = ({ title, value, unit }) => {
+export const CardHighlights = ({ title, value, unit,children }) => {
 
     return (
         <article className={style.card}>
@@ -9,6 +9,7 @@ export const CardHighlights = ({ title, value, unit }) => {
                 <span className={style.cardNumber}>{value}</span>
                 <span className={style.cardUnit}>{unit}</span>
             </div>
+            {children}
         </article>
     );
 }
